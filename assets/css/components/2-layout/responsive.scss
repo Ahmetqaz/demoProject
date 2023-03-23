@@ -1,0 +1,200 @@
+// 1440px
+@include xxxxlg-xxxxxlg {
+  // base start
+  // base end
+  // layout start
+  // layout end
+}
+// 1340px
+@include xxxlg-xxxxlg {
+  // base start
+  // base end
+  // layout start
+  // layout end
+}
+// 1180px
+@include xxlg-xxxlg {
+  // base start
+  h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  h2 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  // base end
+  // layout start
+  @include intro-xxlg-xxxlg;
+  @include product-xxlg-xxxlg;
+  @include about-xxlg-xxxlg;
+  @include reviews-xxlg-xxxlg;
+  // layout end
+}
+// 1024px
+@include xlg-xxlg {
+  // base start
+  h3 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .auto__container {
+    padding: 0 25px;
+  }
+  // base end
+  // layout start
+  @include product-xlg-xxlg;
+  @include reviews-xlg-xxlg;
+  // layout end
+}
+// 940px
+@include lg-xlg-extra {
+  // base start
+  // base end
+  // layout start
+  @include about-lg-xlg-extra;
+  @include revews-lg-xlg-extra;
+  @include features-lg-xlg-extra;
+  @include footer-lg-xlg-extra;
+  @include product-lg-xlg-extra;
+  @include faq-lg-xlg-extra;
+  // layout end
+}
+// 840px
+@include lg-xlg {
+  // base start
+  h1 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  h2 {
+    font-size: 27px;
+    line-height: 37px;
+  }
+  h6 {
+    &.sm {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    &.etxraSm {
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+  .button {
+    &.primary {
+      font-size: 16px;
+      line-height: 18px;
+      padding: 11px 25px;
+    }
+    &.secondary {
+      font-size: 13px;
+      line-height: 14px;
+      padding: 11px 30px;
+      svg {
+        width: 18px;
+        height: 16px;
+      }
+    }
+  }
+  // base end
+  // layout start
+  @include header-lg-xlg;
+  @include nav-lg-xlg;
+  @include basket-lg-xlg;
+  @include intro-lg-xlg;
+  @include product-lg-xlg;
+  @include about-lg-xlg;
+  @include faq-lg-xlg;
+  // layout end
+}
+// 700px
+@include md-lg {
+  // base start
+  // base end
+  // layout start
+  @include intro-md-lg;
+  @include product-md-lg;
+  @include features-md-lg;
+  @include footer-md-lg;
+  @include faq-md-lg;
+  // layout end
+}
+// 600px
+@include sm-md {
+  // base start
+  h3 {
+    font-size: 25px;
+    line-height: 36px;
+  }
+  h4 {
+    font-size: 25px;
+    line-height: 34px;
+  }
+  // base end
+  // layout start
+  @include header-sm-md;
+  @include nav-sm-md;
+  @include baket-sm-md;
+  @include reviews-sm-md;
+  @include newsletter-sm-md;
+  @include footer-sm-md;
+  @include info-sm-md;
+  // layout end
+}
+// 450px
+@include xsm-sm {
+  // base start
+  h1 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+  h2 {
+    font-size: 23px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 23px;
+    line-height: 32px;
+  }
+  .button {
+    &.primary {
+      font-size: 15px;
+      line-height: 18px;
+      padding: 10px 20px;
+    }
+  }
+  .auto__container {
+    padding: 0 15px;
+  }
+  // base end
+  // layout start
+  @include intro-xsm-sm;
+  @include product-xsm-sm;
+  @include about-xsm-sm;
+  @include reviews-xsm-sm;
+  @include features-xsm-sm;
+  @include newsletter-xsm-sm;
+  @include faq-xsm-sm;
+  // layout end
+}
+// 390px
+@include sm {
+  // base start
+  h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  h4 {
+    font-size: 21px;
+    line-height: 28px;
+  }
+  // base end
+  // layout start
+  @include header-sm;
+  @include nav-sm;
+  @include features-sm;
+  @include revews-sm;
+  @include footer-sm;
+  // layout end
+}

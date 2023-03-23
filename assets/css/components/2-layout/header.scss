@@ -1,0 +1,148 @@
+.header {
+  transition: 0.3s ease-in-out;
+  &__inner {
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-logo {
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      @include transition;
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &-tools {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 15px;
+        height: 15px;
+        fill: $blackLight;
+        cursor: pointer;
+        @include transition;
+        &:hover {
+          fill: $primary;
+          transform: translateY(-5%);
+        }
+      }
+    }
+  }
+  &Login {
+    margin-right: 20px;
+  }
+  &Cart {
+    position: relative;
+    span {
+      display: none;
+      width: 15px ;
+      height: 15px ;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      line-height: 8px;
+      background-color: $secondary;
+      border-radius: 50%;
+      position: absolute;
+      top: -3px;
+      right: -13px;
+      color: $white;
+    }
+    &.active{
+      span{
+        display: flex;
+      }
+    }
+  }
+  .burger {
+    display: none;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    &::before {
+      top: 20%;
+      width: calc(100% - 0.4rem);
+      height: 3px;
+      background-color: $black;
+      border-radius: 0.125rem;
+      transition: all 0.3s ease;
+      content: "";
+      position: absolute;
+      left: 50%;
+      @include transformX;
+    }
+    &::after {
+      bottom: 20%;
+      width: calc(100% - 0.4rem);
+      height: 3px;
+      background-color: $black;
+      border-radius: 0.125rem;
+      transition: all 0.3s ease;
+      content: "";
+      position: absolute;
+      left: 50%;
+      @include transformX;
+    }
+    &.active {
+      &::before {
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &::after {
+        bottom: 50%;
+        -webkit-transform: translate(-50%, 50%) rotate(-45deg);
+        transform: translate(-50%, 50%) rotate(-45deg);
+      }
+    }
+  }
+}
+// 840px
+@mixin header-lg-xlg {
+  .header {
+    &__inner {
+      padding: 15px 0;
+      &-logo {
+        width: 45px;
+      }
+    }
+  }
+}
+// 600px
+@mixin header-sm-md {
+  .header {
+    &Cart {
+      margin-right: 20px;
+    }
+    .burger {
+      display: block;
+    }
+    &.active {
+      background: $white;
+    }
+  }
+}
+// 390px
+@mixin header-sm {
+  .header {
+    .burger {
+      width: 25px;
+      height: 20px;
+      &::before {
+        height: 2px;
+      }
+      &::after {
+        height: 2px;
+      }
+    }
+  }
+}

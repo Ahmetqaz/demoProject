@@ -1,0 +1,345 @@
+.basket {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: 0.4s ease-in-out;
+  &__inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $white;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    overflow: auto;
+    &-header {
+      padding: 45px 50px 20px 36px;
+      position: relative;
+      background-color: $grayLight;
+      h6 {
+        color: $blueDark;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 12px;
+        line-height: 18px;
+        color: $blueDark;
+        span {
+          color: $secondary;
+        }
+      }
+    }
+    &-products {
+      display: block;
+      padding: 18px 36px;
+    }
+    &-total {
+      padding: 10px 36px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      &-price {
+        p {
+          color: $blueDark;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-weight: 600;
+          margin-bottom: 15px;
+          span {
+            display: block;
+            margin-left: 15px;
+          }
+        }
+      }
+      h6 {
+        color: $blueDark;
+        font-weight: 400;
+      }
+    }
+  }
+  &Close {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    &:hover {
+      &::before {
+        background: $red;
+      }
+      &::after {
+        background: $red;
+      }
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 100%;
+      background: $black;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      @include transition;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 100%;
+      background: $black;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      @include transition;
+    }
+  }
+  &Product {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 15px 0;
+    &::after {
+      content: "";
+      width: calc(100% + 20px);
+      height: 1px;
+      background-color: $aquaLight;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    &__image {
+      width: 65px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &__info {
+      max-width: 190px;
+    }
+    &__counter {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      margin-left: 50px;
+      span {
+        display: block;
+        width: 17px;
+        position: relative;
+        margin: 0 15px;
+        cursor: pointer;
+        @include transition;
+        &:hover {
+          opacity: 0.8;
+        }
+        &::before {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: $blueDark;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        &.plus {
+          &::after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: $blueDark;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+          }
+        }
+      }
+      &-total {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $blueDark;
+      }
+      input {
+        width: 80%;
+        height: 100%;
+        font-size: 16px;
+        line-height: 18px;
+        color: $blueDark;
+        text-align: center;
+        &::placeholder {
+          font-size: 16px;
+          line-height: 18px;
+          color: $blueDark;
+        }
+      }
+    }
+    &__removeBtn {
+      display: block;
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      cursor: pointer;
+      @include transition;
+      border-radius: 50%;
+      top: 50%;
+      right: -20px;
+      transform: translateY(-50%);
+      background: $white;
+      border: 1px solid $aquaLight;
+      &:hover {
+        opacity: 0.8;
+      }
+      &::before {
+        content: "";
+        width: 50%;
+        height: 1.5px;
+        background-color: $red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      &::after {
+        content: "";
+        width: 50%;
+        height: 1.5px;
+        background-color: $red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+    h6 {
+      color: $blueDark;
+      margin-bottom: 5px;
+    }
+    p {
+      color: $blueDark;
+      font-weight: 600;
+      small {
+        color: $grayDark;
+        font-size: 10px;
+        font-weight: 400;
+      }
+    }
+  }
+  &.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+// 840px
+@mixin basket-lg-xlg {
+  .basket {
+    &__inner {
+      width: 550px;
+      &-header {
+        padding: 35px 45px 15px 25px;
+        p {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+      &-products {
+        padding: 15px 25px;
+      }
+    }
+    &Close {
+      width: 20px;
+      height: 20px;
+    }
+    &Product {
+      &__image {
+        width: 55px;
+        height: 55px;
+      }
+      &__counter {
+        &-total {
+          width: 35px;
+          height: 35px;
+        }
+        input {
+          font-size: 14px;
+          line-height: 15px;
+        }
+        span {
+          width: 15px;
+        }
+      }
+      &__removeBtn {
+        right: -10px;
+        width: 30px;
+        height: 30px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+// 600px
+@mixin baket-sm-md {
+  .basket {
+    &__inner {
+      width: 100%;
+      max-width: 400px;
+      &-total{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h6{
+          margin-bottom: 20px;
+        }
+      }
+    }
+    &Product {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &__image {
+        margin: 0 0 20px 0;
+      }
+      &__counter{
+        margin-left: 0;
+      }
+      &__removeBtn{
+        top: 20px;
+        transform: unset;
+      }
+      h6{
+        text-align: center;
+      }
+      p{
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

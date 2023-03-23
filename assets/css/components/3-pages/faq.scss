@@ -1,0 +1,202 @@
+.faq {
+  margin-bottom: 90px;
+  &__hero {
+    padding: 240px 0 320px;
+    position: relative;
+    &-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(41, 47, 90, 0.8);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  &__inner {
+    padding: 65px 100px 40px;
+    background-color: $white;
+    margin-top: -180px;
+  }
+  &Item {
+    &__button {
+      padding: 30px;
+      border: 1px solid #c3d1e2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      p {
+        color: $black2;
+        font-size: 20px;
+        line-height: 35px;
+      }
+      span {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 30px;
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: $secondary;
+          transition: 0.3s ease-in-out;
+        }
+      }
+      &.active {
+        svg {
+          fill: $blueDark;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &__content {
+      padding: 0 100px 0 70px;
+      border: 1px solid #c3d1e2;
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease-in-out;
+      p {
+        color: $black2;
+        font-size: 18px;
+        line-height: 28px;
+      }
+      &.active {
+        padding: 30px 100px 30px 70px;
+        max-height: 500px;
+        opacity: 1;
+        pointer-events: all;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  h1 {
+    text-align: center;
+    color: $white;
+    &::before {
+      width: 100%;
+      max-width: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  h3 {
+    margin-bottom: 98px;
+    color: $black;
+    text-align: center;
+  }
+}
+// 940px
+@mixin faq-lg-xlg-extra {
+  .faq {
+    &__inner {
+      padding: 50px 60px 30px;
+    }
+    h3 {
+      margin-bottom: 60px;
+    }
+  }
+}
+// 840px
+@mixin faq-lg-xlg {
+  .faq {
+    &__inner {
+      padding: 50px 50px 30px;
+    }
+    &Item {
+      &__button {
+        span {
+          width: 35px;
+          height: 35px;
+        }
+        p {
+          font-size: 18px;
+          line-height: 26px;
+        }
+      }
+      &__content {
+        padding: 0 50px 0;
+        &.active {
+          padding: 30px 50px;
+        }
+      }
+    }
+    h3 {
+      margin-bottom: 50px;
+    }
+  }
+}
+// 600px
+@mixin faq-md-lg {
+  .faq {
+    margin-bottom: 50px;
+    &__inner {
+      padding: 40px 25px 30px;
+    }
+    &Item {
+      &__button {
+        padding: 20px;
+        span {
+          width: 30px;
+          height: 30px;
+        }
+        p {
+          font-size: 18px;
+          line-height: 26px;
+        }
+      }
+      &__content {
+        &.active {
+          padding: 25px 30px;
+        }
+        p {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+    h3 {
+      margin-bottom: 50px;
+    }
+  }
+}
+// 450px
+@mixin faq-xsm-sm {
+  .faq {
+    overflow: hidden;
+    &__inner {
+      padding: 30px 0;
+      position: relative;
+      &::before {
+        content: "";
+        width: calc(100% + 50px);
+        height: 100%;
+        background-color: $white;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    h3 {
+      margin-bottom: 30px;
+    }
+  }
+}

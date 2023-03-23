@@ -1,0 +1,125 @@
+h1 {
+  font-size: 50px;
+  line-height: 60px;
+  position: relative;
+  font-family: $noto;
+  font-weight: 500;
+  &::before {
+    content: "";
+    width: 30%;
+    height: 1px;
+    border-radius: 10px;
+    background-color: $white;
+    position: absolute;
+    top: -24px;
+    left: 0;
+  }
+}
+h2 {
+  font-size: 35px;
+  line-height: 50px;
+  color: $blueLight;
+  position: relative;
+  font-family: $noto;
+  font-weight: 500;
+  padding-bottom: 15px;
+  &:after {
+    content: "";
+    width: 30%;
+    height: 1.5px;
+    background-color: $blueLight;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+h3 {
+  font-family: $noto;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 45px;
+  text-transform: capitalize;
+  color: $white;
+}
+h4 {
+  font-family: $noto;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 50px;
+  text-transform: capitalize;
+  color: $white;
+}
+h5 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+h6 {
+  &.sm {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+  &.extraSm {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+}
+p {
+  &.big {
+  }
+  &.sm {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+.button {
+  &.primary {
+    cursor: pointer;
+    color: $white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 13px 30px;
+    border-radius: 5px;
+    background-color: $secondary;
+    @include transition;
+    border: 1px solid $secondary;
+    &:hover {
+      color: $secondary;
+      background-color: $white;
+    }
+  }
+  &.secondary {
+    padding: 12px 42px;
+    border: 1px solid $secondary;
+    color: $secondary;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 20px;
+        height: 18px;
+        fill: $secondary;
+        margin-right: 10px;
+        transition: 0.3s ease-in-out;
+      }
+    }
+    &:hover {
+      color: $white;
+      background-color: $secondary;
+      svg {
+        fill: $white;
+      }
+    }
+  }
+}
